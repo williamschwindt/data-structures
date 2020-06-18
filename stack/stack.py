@@ -11,7 +11,6 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 
-import sys
 from singly_linked_list import Node
 from singly_linked_list import LinkedList
 
