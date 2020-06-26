@@ -17,43 +17,43 @@ Stretch: What if you could only use instances of your Stack class to implement t
 from singly_linked_list import Node
 from singly_linked_list import LinkedList
 
-# class Queue:
-#     def __init__(self):
-#         self.size = 0
-#         self.storage = []
-    
-#     def __len__(self):
-#         return len(self.storage)
-
-#     def enqueue(self, value):
-#         self.storage.insert(0, value)
-
-#     def dequeue(self):
-#         if len(self.storage) == 0:
-#             return
-#         return self.storage.pop(-1)
-
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = LinkedList()
+        self.storage = []
     
     def __len__(self):
-        current_node = self.storage.head
-        length = 0
-
-        while current_node:
-            length += 1
-            current_node = current_node.next_node
-        return length
+        return len(self.storage)
 
     def enqueue(self, value):
-        self.storage.add_to_tail(value)
+        self.storage.insert(0, value)
 
     def dequeue(self):
-        if self.storage.head == None:
+        if len(self.storage) == 0:
             return
+        return self.storage.pop(-1)
 
-        return self.storage.remove_head()
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = LinkedList()
+    
+#     def __len__(self):
+#         current_node = self.storage.head
+#         length = 0
+
+#         while current_node:
+#             length += 1
+#             current_node = current_node.next_node
+#         return length
+
+#     def enqueue(self, value):
+#         self.storage.add_to_tail(value)
+
+#     def dequeue(self):
+#         if self.storage.head == None:
+#             return
+
+#         return self.storage.remove_head()
 
         

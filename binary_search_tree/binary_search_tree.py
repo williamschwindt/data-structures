@@ -9,6 +9,22 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+class Queue:
+    def __init__(self):
+        self.size = 0
+        self.storage = []
+    
+    def __len__(self):
+        return len(self.storage)
+
+    def enqueue(self, value):
+        self.storage.insert(0, value)
+
+    def dequeue(self):
+        if len(self.storage) == 0:
+            return
+        return self.storage.pop(-1)
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -101,12 +117,35 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        queue = []
+        queue.append(self)
+
+        while len(queue) != 0:
+            node = queue.pop(0)
+            print(node.value)
+
+            if node.left is not None:
+                queue.append(node.left)
+
+            if node.right is not None:
+                queue.append(node.right)
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        stack = []
+        stack.append(self)
+
+        while len(stack) != 0:
+            node = stack[-1]
+            stack.pop()
+            print(node.value)
+
+            if node.left is not None:
+                stack.append(node.left)
+            if node.right is not None:
+                stack.append(node.right)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -121,13 +160,13 @@ class BSTNode:
 
 
 
-bst = BSTNode(1)
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst = BSTNode(1)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
-bst.in_order_print(bst)
+# bst.dft_print(bst)
