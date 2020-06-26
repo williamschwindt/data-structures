@@ -152,21 +152,45 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        if node is not None:
+            #print value
+            print(node.value)
+
+            #if left is not none:
+            #call on left child
+            if self.left is not None:
+                self.left.pre_order_dft(self.left)
+
+            #if right is not none:
+                #call on right child
+            if self.right is not None:
+                self.right.pre_order_dft(self.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if node is not None:
+            #if left is not none:
+            #call on left child
+            if self.left is not None:
+                self.left.post_order_dft(self.left)
+
+            #if right is not none:
+                #call on right child
+            if self.right is not None:
+                self.right.post_order_dft(self.right)
+
+            #print value
+            print(node.value)
 
 
 
-# bst = BSTNode(1)
-# bst.insert(8)
-# bst.insert(5)
-# bst.insert(7)
-# bst.insert(6)
-# bst.insert(3)
-# bst.insert(4)
-# bst.insert(2)
+bst = BSTNode(1)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
 
-# bst.dft_print(bst)
+bst.post_order_dft(bst)
